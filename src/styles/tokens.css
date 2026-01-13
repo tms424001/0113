@@ -1,0 +1,36 @@
+/* src/styles/tokens.css */
+:root {
+  /* Spacing (8-based) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+
+  /* Layout */
+  --page-padding: 24px;
+  --card-padding: 16px;
+  --control-gap: 8px;
+  --sidebar-width: 256px;
+  --sidebar-collapsed-width: 64px;
+  --topnav-height: 48px;
+  --page-header-min-height: 64px;
+  --content-max-width: 1200px;
+
+  /* Colors */
+  --color-bg-page: #f5f7fa;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar-hover: rgba(0, 0, 0, 0.04);
+  --color-bg-sidebar-active: #e6f7ff;
+  --color-bg-table-hover: #fafafa;
+  --color-bg-table-selected: #e6f7ff;
+
+  /* Radius */
+  --radius-card: 8px;
+  --radius-input: 6px;
+
+  /* Transition */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+}

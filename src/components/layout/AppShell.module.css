@@ -1,0 +1,27 @@
+/* src/components/layout/AppShell.module.css */
+.appShell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  height: 100%;
+  transition: width var(--transition-normal);
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: var(--page-padding);
+  background: var(--color-bg-page);
+}
