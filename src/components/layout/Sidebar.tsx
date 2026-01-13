@@ -157,11 +157,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
     [location.pathname, filteredNodes]
   )
 
-  const defaultOpenKeys = useMemo(() => {
-    return filteredNodes
+  const getDefaultOpenKeys = (nodes: SidebarNode[]) => {
+    return nodes
       .filter((node): node is SidebarGroup => node.type === 'group' && node.defaultOpen === true)
       .map((node) => node.key)
-  }, [filteredNodes])
+  }
+
+  const [openKeys, setOpenKeys] = React.useState<string[]>(() => getDefaultOpenKeys(filteredNodes))
+
+  // 当 config 变化时（切换模块），重置 openKeys
+  React.useEffect(() => {
+    setOpenKeys(getDefaultOpenKeys(filteredNodes))
+  }, [config.defaultPath])
+
+  const handleOpenChange = (keys: string[]) => {
+    setOpenKeys(keys)
+  }
 
   const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
     const path = findPathByKey(key, filteredNodes)
@@ -206,7 +217,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <Menu
         mode="inline"
         selectedKeys={selectedKey ? [selectedKey] : []}
-        defaultOpenKeys={defaultOpenKeys}
+        openKeys={openKeys}
+        onOpenChange={handleOpenChange}
         items={menuItems}
         onClick={handleMenuClick}
         inlineCollapsed={sidebarCollapsed}
