@@ -35,11 +35,6 @@ const AssetsMallMarketPrices = lazy(() => import('../pages/assets/MallMarketPric
 const AssetsMallProjects = lazy(() => import('../pages/assets/MallProjectsPage'))
 const AssetsPersonalProjects = lazy(() => import('../pages/assets/personal/ProjectsPage'))
 
-// Enterprise Assets Pages
-const EnterpriseProjectsPage = lazy(() => import('../pages/assets/enterprise/ProjectsPage'))
-const EnterpriseMaterialsPage = lazy(() => import('../pages/assets/enterprise/MaterialsPage'))
-const EnterpriseBOQsPage = lazy(() => import('../pages/assets/enterprise/BOQsPage'))
-
 // Pricing Pages
 const PricingFiles = lazy(() => import('../pages/pricing/FilesPage'))
 const PricingTasks = lazy(() => import('../pages/pricing/TasksPage'))
@@ -104,11 +99,6 @@ export const router = createBrowserRouter([
       { path: 'assets/mall/market-prices', element: <Suspense fallback={<PageLoading />}><AssetsMallMarketPrices /></Suspense> },
       { path: 'assets/mall/projects', element: <Suspense fallback={<PageLoading />}><AssetsMallProjects /></Suspense> },
       { path: 'assets/personal/projects', element: <Suspense fallback={<PageLoading />}><AssetsPersonalProjects /></Suspense> },
-
-      // Enterprise Assets
-      { path: 'assets/enterprise/projects', element: <Suspense fallback={<PageLoading />}><EnterpriseProjectsPage /></Suspense> },
-      { path: 'assets/enterprise/materials', element: <Suspense fallback={<PageLoading />}><EnterpriseMaterialsPage /></Suspense> },
-      { path: 'assets/enterprise/boqs', element: <Suspense fallback={<PageLoading />}><EnterpriseBOQsPage /></Suspense> },
 
       // Pricing Module
       { path: 'pricing/files', element: <Suspense fallback={<PageLoading />}><PricingFiles /></Suspense> },

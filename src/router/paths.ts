@@ -33,14 +33,6 @@ export const PATHS = {
     BOQS: '/assets/personal/boqs',
   },
 
-  // ========== 企业资产 ==========
-  ENTERPRISE: {
-    ROOT: '/assets/enterprise',
-    PROJECTS: '/assets/enterprise/projects',
-    MATERIALS: '/assets/enterprise/materials',
-    BOQS: '/assets/enterprise/boqs',
-  },
-
   // ========== PR 入库申请 ==========
   PR: {
     ROOT: '/pr',

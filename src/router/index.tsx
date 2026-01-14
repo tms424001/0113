@@ -46,11 +46,6 @@ const PersonalProjectsPage = lazy(() => import('@/pages/assets/personal/Projects
 const PersonalMaterialsPage = lazy(() => import('@/pages/assets/personal/MaterialsPage'))
 const PersonalBOQsPage = lazy(() => import('@/pages/assets/personal/BOQsPage'))
 
-// ===== 企业资产 =====
-const EnterpriseProjectsPage = lazy(() => import('@/pages/assets/enterprise/ProjectsPage'))
-const EnterpriseMaterialsPage = lazy(() => import('@/pages/assets/enterprise/MaterialsPage'))
-const EnterpriseBOQsPage = lazy(() => import('@/pages/assets/enterprise/BOQsPage'))
-
 // ===== 计价模块 =====
 const PricingFiles = lazy(() => import('@/pages/pricing/FilesPage'))
 const PricingTasks = lazy(() => import('@/pages/pricing/TasksPage'))
@@ -111,19 +106,27 @@ export const routes: RouteObject[] = [
             },
           },
           {
-            path: 'materials',
-            element: LazyLoad(CollectUploadPage), // 复用上传页，通过参数区分
+            path: 'ingest/material',
+            element: LazyLoad(CollectUploadPage),
             handle: {
               title: '材料数据采集',
-              menuKey: 'collect-materials',
+              menuKey: 'collect-ingest-material',
             },
           },
           {
-            path: 'boqs',
-            element: LazyLoad(CollectUploadPage), // 复用上传页，通过参数区分
+            path: 'ingest/boq',
+            element: LazyLoad(CollectUploadPage),
             handle: {
               title: '清单数据采集',
-              menuKey: 'collect-boqs',
+              menuKey: 'collect-ingest-boq',
+            },
+          },
+          {
+            path: 'materials',
+            element: LazyLoad(PersonalMaterialsPage),
+            handle: {
+              title: '我的材料',
+              menuKey: 'collect-materials',
             },
           },
           {
@@ -132,6 +135,22 @@ export const routes: RouteObject[] = [
             handle: {
               title: '我的草稿箱',
               menuKey: 'collect-drafts',
+            },
+          },
+          {
+            path: 'projects',
+            element: LazyLoad(PersonalProjectsPage),
+            handle: {
+              title: '我的项目',
+              menuKey: 'collect-projects',
+            },
+          },
+          {
+            path: 'boq-items',
+            element: LazyLoad(PersonalBOQsPage),
+            handle: {
+              title: '我的清单',
+              menuKey: 'collect-boq-items',
             },
           },
         ],
@@ -251,41 +270,6 @@ export const routes: RouteObject[] = [
             handle: {
               title: '我的清单',
               menuKey: 'personal-boqs',
-            },
-          },
-        ],
-      },
-
-      // ========== 企业资产 ==========
-      {
-        path: 'assets/enterprise',
-        children: [
-          {
-            index: true,
-            element: <Navigate to="/assets/enterprise/projects" replace />,
-          },
-          {
-            path: 'projects',
-            element: LazyLoad(EnterpriseProjectsPage),
-            handle: {
-              title: '企业项目库',
-              menuKey: 'enterprise-projects',
-            },
-          },
-          {
-            path: 'materials',
-            element: LazyLoad(EnterpriseMaterialsPage),
-            handle: {
-              title: '企业材料库',
-              menuKey: 'enterprise-materials',
-            },
-          },
-          {
-            path: 'boqs',
-            element: LazyLoad(EnterpriseBOQsPage),
-            handle: {
-              title: '企业清单库',
-              menuKey: 'enterprise-boqs',
             },
           },
         ],

@@ -11,7 +11,6 @@ import {
   AppstoreOutlined,
   DatabaseOutlined,
   AuditOutlined,
-  BankOutlined,
   FileTextOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons'
@@ -96,33 +95,6 @@ export const menuConfig: MenuItemConfig[] = [
     ],
   },
 
-  // ========== 企业资产 ==========
-  {
-    key: 'enterprise',
-    label: '企业资产',
-    icon: React.createElement(BankOutlined),
-    children: [
-      {
-        key: 'enterprise-projects',
-        label: '企业项目库',
-        icon: React.createElement(ProjectOutlined),
-        path: '/assets/enterprise/projects',
-      },
-      {
-        key: 'enterprise-materials',
-        label: '企业材料库',
-        icon: React.createElement(DatabaseOutlined),
-        path: '/assets/enterprise/materials',
-      },
-      {
-        key: 'enterprise-boqs',
-        label: '企业清单库',
-        icon: React.createElement(UnorderedListOutlined),
-        path: '/assets/enterprise/boqs',
-      },
-    ],
-  },
-
   // ========== 入库审批 ==========
   {
     key: 'pr',
@@ -191,9 +163,6 @@ export function getOpenKeys(pathname: string): string[] {
   }
   if (pathname.startsWith('/assets/personal')) {
     return ['personal']
-  }
-  if (pathname.startsWith('/assets/enterprise')) {
-    return ['enterprise']
   }
 
   return []
