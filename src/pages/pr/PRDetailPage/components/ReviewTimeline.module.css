@@ -1,0 +1,39 @@
+/* src/pages/pr/PRDetailPage/components/ReviewTimeline.module.css */
+
+.card {
+  background: var(--color-bg-card);
+  height: fit-content;
+}
+
+.timelineItem {
+  padding-bottom: var(--spacing-sm);
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.levelTag {
+  font-size: 12px;
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.time {
+  font-size: 12px;
+}
+
+.comment {
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 13px;
+}

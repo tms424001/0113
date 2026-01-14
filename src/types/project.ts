@@ -35,13 +35,11 @@ export const PROJECT_STATUS_OPTIONS = [
  * 编制阶段选项
  */
 export const COMPILATION_PHASE_OPTIONS = [
-  { value: 'estimate', label: '估算' },
   { value: 'budget_estimate', label: '概算' },
   { value: 'bidding_boq', label: '招标工程量清单' },
-  { value: 'bidding_control', label: '招标控制价' },
-  { value: 'budget', label: '施工图预算' },
+  { value: 'max_bid_limit', label: '最高投标限价' },
+  { value: 'contract_price', label: '合同价' },
   { value: 'settlement', label: '结算' },
-  { value: 'final_account', label: '决算' },
 ] as const
 
 /**

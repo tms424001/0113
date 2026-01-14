@@ -1,0 +1,17 @@
+/* src/pages/pr/PRCreatePage/components/StepSelectProject.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-bg-card);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}

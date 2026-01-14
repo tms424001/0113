@@ -35,6 +35,11 @@ const AssetsMallMarketPrices = lazy(() => import('../pages/assets/MallMarketPric
 const AssetsMallProjects = lazy(() => import('../pages/assets/MallProjectsPage'))
 const AssetsPersonalProjects = lazy(() => import('../pages/assets/personal/ProjectsPage'))
 
+// Enterprise Assets Pages
+const EnterpriseProjectsPage = lazy(() => import('../pages/assets/enterprise/ProjectsPage'))
+const EnterpriseMaterialsPage = lazy(() => import('../pages/assets/enterprise/MaterialsPage'))
+const EnterpriseBOQsPage = lazy(() => import('../pages/assets/enterprise/BOQsPage'))
+
 // Pricing Pages
 const PricingFiles = lazy(() => import('../pages/pricing/FilesPage'))
 const PricingTasks = lazy(() => import('../pages/pricing/TasksPage'))
@@ -63,6 +68,11 @@ const EstimationList = lazy(() => import('../pages/estimation/ListPage'))
 
 // Standardize Pages
 const StandardizationPage = lazy(() => import('../pages/standardize/StandardizationPage'))
+
+// PR Pages
+const PRListPage = lazy(() => import('../pages/pr/PRListPage'))
+const PRDetailPage = lazy(() => import('../pages/pr/PRDetailPage'))
+const PRCreatePage = lazy(() => import('../pages/pr/PRCreatePage'))
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +105,11 @@ export const router = createBrowserRouter([
       { path: 'assets/mall/projects', element: <Suspense fallback={<PageLoading />}><AssetsMallProjects /></Suspense> },
       { path: 'assets/personal/projects', element: <Suspense fallback={<PageLoading />}><AssetsPersonalProjects /></Suspense> },
 
+      // Enterprise Assets
+      { path: 'assets/enterprise/projects', element: <Suspense fallback={<PageLoading />}><EnterpriseProjectsPage /></Suspense> },
+      { path: 'assets/enterprise/materials', element: <Suspense fallback={<PageLoading />}><EnterpriseMaterialsPage /></Suspense> },
+      { path: 'assets/enterprise/boqs', element: <Suspense fallback={<PageLoading />}><EnterpriseBOQsPage /></Suspense> },
+
       // Pricing Module
       { path: 'pricing/files', element: <Suspense fallback={<PageLoading />}><PricingFiles /></Suspense> },
       { path: 'pricing/tasks', element: <Suspense fallback={<PageLoading />}><PricingTasks /></Suspense> },
@@ -123,6 +138,13 @@ export const router = createBrowserRouter([
 
       // Standardize Module
       { path: 'standardize/files/:id', element: <Suspense fallback={<PageLoading />}><StandardizationPage /></Suspense> },
+
+      // PR Module
+      { path: 'pr', element: <Suspense fallback={<PageLoading />}><PRListPage /></Suspense> },
+      { path: 'pr/list', element: <Suspense fallback={<PageLoading />}><PRListPage /></Suspense> },
+      { path: 'pr/create', element: <Suspense fallback={<PageLoading />}><PRCreatePage /></Suspense> },
+      { path: 'pr/:id', element: <Suspense fallback={<PageLoading />}><PRDetailPage /></Suspense> },
+      { path: 'pr/:id/edit', element: <Suspense fallback={<PageLoading />}><PRCreatePage /></Suspense> },
 
       // Fallback redirects
       { path: 'collect', element: <Navigate to={ROUTES.COLLECT.DASHBOARD} replace /> },

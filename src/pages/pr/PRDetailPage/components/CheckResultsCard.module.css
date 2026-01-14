@@ -1,0 +1,32 @@
+/* src/pages/pr/PRDetailPage/components/CheckResultsCard.module.css */
+
+.card {
+  background: var(--color-bg-card);
+}
+
+.empty {
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.listItem {
+  padding: var(--spacing-sm) 0 !important;
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.categoryTag {
+  flex-shrink: 0;
+}
+
+.message {
+  flex: 1;
+}

@@ -1,0 +1,50 @@
+/* src/pages/assets/enterprise/MaterialsPage/MaterialsPage.module.css */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--page-padding);
+  background: var(--color-bg-page);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.statsRow {
+  margin-bottom: var(--spacing-lg);
+}
+
+.statsRow :global(.ant-card) {
+  background: var(--color-bg-card);
+}
+
+.filterBar {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+}
+
+.tableContainer {
+  flex: 1;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.tableContainer :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 600;
+}

@@ -2,7 +2,7 @@
 import { RouterProvider } from 'react-router-dom'
 import { ErrorBoundary } from './app/ErrorBoundary'
 import { Providers } from './app/Providers'
-import { router } from './app/routes'
+import { router } from './router'
 import './styles/global.css'
 import './styles/antd-overrides.css'
 

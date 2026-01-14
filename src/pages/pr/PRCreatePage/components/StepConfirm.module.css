@@ -1,0 +1,39 @@
+/* src/pages/pr/PRCreatePage/components/StepConfirm.module.css */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.completenessCard {
+  background: var(--color-bg-card);
+  margin-bottom: var(--spacing-lg);
+}
+
+.completenessHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.alert {
+  margin-top: var(--spacing-md);
+}
+
+.card {
+  background: var(--color-bg-card);
+  margin-bottom: var(--spacing-lg);
+}
+
+.noticeList {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.noticeList li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.noticeList li:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,23 @@
+/* src/pages/pr/PRCreatePage/components/StepSubProjects.module.css */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-bg-card);
+}
+
+.tips {
+  margin-bottom: var(--spacing-lg);
+}
+
+.card :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.card :global(.ant-table-summary > tr > td) {
+  background: #fafafa;
+}

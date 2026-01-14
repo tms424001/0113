@@ -1,0 +1,23 @@
+/* src/pages/assets/enterprise/ProjectsPage/components/StatsCards.module.css */
+
+.statsRow {
+  margin-bottom: var(--spacing-lg);
+}
+
+.statsRow :global(.ant-card) {
+  background: var(--color-bg-card);
+}
+
+.statsRow :global(.ant-statistic-title) {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+}
+
+.statsRow :global(.ant-statistic-content) {
+  font-size: 22px;
+}
+
+.statsRow :global(.ant-statistic-content-prefix) {
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.45);
+}

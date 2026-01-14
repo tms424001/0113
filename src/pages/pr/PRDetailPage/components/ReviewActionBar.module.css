@@ -1,0 +1,25 @@
+/* src/pages/pr/PRDetailPage/components/ReviewActionBar.module.css */
+
+.actionBar {
+  position: sticky;
+  bottom: 0;
+  margin-top: var(--spacing-lg);
+  background: var(--color-bg-card);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.commentSection {
+  margin-top: var(--spacing-md);
+}

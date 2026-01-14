@@ -1,0 +1,14 @@
+/* src/pages/pr/PRDetailPage/components/SubProjectsCard.module.css */
+
+.card {
+  background: var(--color-bg-card);
+}
+
+.card :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.card :global(.ant-table-summary > tr > td) {
+  background: #fafafa;
+}

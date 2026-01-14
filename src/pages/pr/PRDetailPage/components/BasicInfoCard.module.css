@@ -1,0 +1,34 @@
+/* src/pages/pr/PRDetailPage/components/BasicInfoCard.module.css */
+
+.card {
+  background: var(--color-bg-card);
+}
+
+.header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.projectName {
+  font-size: 16px;
+}
+
+.completeness {
+  max-width: 200px;
+}
+
+.completenessLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+}
+
+.descriptions :global(.ant-descriptions-item-label) {
+  color: rgba(0, 0, 0, 0.45);
+}
