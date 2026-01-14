@@ -33,7 +33,7 @@ export const TopNav: React.FC = () => {
     if (path.startsWith('/collect')) return 'collect'
     if (path.startsWith('/assets')) return 'assets'
     if (path.startsWith('/pricing')) return 'pricing'
-    if (path.startsWith('/quality')) return 'quality'
+    if (path.startsWith('/qc')) return 'qc'
     if (path.startsWith('/estimation')) return 'estimation'
     return 'collect'
   }, [location.pathname])
