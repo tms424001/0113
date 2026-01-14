@@ -1,0 +1,32 @@
+/* src/components/business/DataTable.module.css */
+.tableContainer {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.tableContainer :global(.ant-table-wrapper) {
+  border-radius: var(--radius-card);
+}
+
+.tableContainer :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 500;
+}
+
+.tableContainer :global(.ant-table-tbody > tr:hover > td) {
+  background: var(--color-bg-table-hover);
+}
+
+.tableContainer :global(.ant-table-tbody > tr.row-selected > td) {
+  background: var(--color-bg-table-selected);
+}
+
+.stateContainer {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

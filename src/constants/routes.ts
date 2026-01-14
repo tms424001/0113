@@ -10,10 +10,11 @@ export const ROUTES = {
     ROOT: '/collect',
     DASHBOARD: '/collect/dashboard',
     INGEST: {
-      PRICING: '/collect/ingest/pricing',
+      PRICING: '/collect/upload',
       MATERIAL: '/collect/ingest/material',
       BOQ: '/collect/ingest/boq',
     },
+    UPLOAD: '/collect/upload',
     DRAFTS: '/collect/drafts',
     MATERIALS: '/collect/materials',
     BOQ_ITEMS: '/collect/boq-items',

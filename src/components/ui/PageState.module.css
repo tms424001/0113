@@ -1,0 +1,76 @@
+/* src/components/ui/PageState.module.css */
+
+/* Loading States */
+.loadingContainer {
+  padding: var(--spacing-lg);
+}
+
+.tableRow {
+  margin-bottom: var(--spacing-sm);
+}
+
+.tableRow :global(.ant-skeleton-paragraph) {
+  margin: 0;
+}
+
+.tableRow :global(.ant-skeleton-paragraph > li) {
+  height: 40px !important;
+  margin: 0 !important;
+}
+
+.drawerLoading {
+  padding: var(--spacing-lg);
+}
+
+.drawerLoading :global(.ant-skeleton) {
+  margin-bottom: var(--spacing-xl);
+}
+
+.cardLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* Empty States */
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  min-height: 300px;
+}
+
+.emptyContent {
+  text-align: center;
+}
+
+.emptyTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  margin-bottom: var(--spacing-xs);
+}
+
+.emptyDescription {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.emptyActions {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Error States */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  min-height: 300px;
+}

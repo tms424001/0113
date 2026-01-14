@@ -19,7 +19,8 @@ const CollectIngestBoq = lazy(() => import('../pages/collect/IngestBoqPage'))
 const CollectDrafts = lazy(() => import('../pages/collect/DraftsPage'))
 const CollectMaterials = lazy(() => import('../pages/collect/MaterialsPage'))
 const CollectBoqItems = lazy(() => import('../pages/collect/BoqItemsPage'))
-const CollectProjects = lazy(() => import('../pages/collect/ProjectsPage'))
+const CollectProjects = lazy(() => import('../pages/assets/personal/ProjectsPage'))
+const CollectUpload = lazy(() => import('../pages/collect/CollectUploadPage'))
 
 // Assets Pages
 const AssetsDashboard = lazy(() => import('../pages/assets/DashboardPage'))
@@ -32,6 +33,7 @@ const AssetsTags = lazy(() => import('../pages/assets/TagsPage'))
 const AssetsMallInfoPrices = lazy(() => import('../pages/assets/MallInfoPricesPage'))
 const AssetsMallMarketPrices = lazy(() => import('../pages/assets/MallMarketPricesPage'))
 const AssetsMallProjects = lazy(() => import('../pages/assets/MallProjectsPage'))
+const AssetsPersonalProjects = lazy(() => import('../pages/assets/personal/ProjectsPage'))
 
 // Pricing Pages
 const PricingFiles = lazy(() => import('../pages/pricing/FilesPage'))
@@ -59,6 +61,9 @@ const EstimationMetric = lazy(() => import('../pages/estimation/MetricPage'))
 const EstimationParametric = lazy(() => import('../pages/estimation/ParametricPage'))
 const EstimationList = lazy(() => import('../pages/estimation/ListPage'))
 
+// Standardize Pages
+const StandardizationPage = lazy(() => import('../pages/standardize/StandardizationPage'))
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -75,6 +80,7 @@ export const router = createBrowserRouter([
       { path: 'collect/materials', element: <Suspense fallback={<PageLoading />}><CollectMaterials /></Suspense> },
       { path: 'collect/boq-items', element: <Suspense fallback={<PageLoading />}><CollectBoqItems /></Suspense> },
       { path: 'collect/projects', element: <Suspense fallback={<PageLoading />}><CollectProjects /></Suspense> },
+      { path: 'collect/upload', element: <Suspense fallback={<PageLoading />}><CollectUpload /></Suspense> },
 
       // Assets Module
       { path: 'assets/dashboard', element: <Suspense fallback={<PageLoading />}><AssetsDashboard /></Suspense> },
@@ -87,6 +93,7 @@ export const router = createBrowserRouter([
       { path: 'assets/mall/info-prices', element: <Suspense fallback={<PageLoading />}><AssetsMallInfoPrices /></Suspense> },
       { path: 'assets/mall/market-prices', element: <Suspense fallback={<PageLoading />}><AssetsMallMarketPrices /></Suspense> },
       { path: 'assets/mall/projects', element: <Suspense fallback={<PageLoading />}><AssetsMallProjects /></Suspense> },
+      { path: 'assets/personal/projects', element: <Suspense fallback={<PageLoading />}><AssetsPersonalProjects /></Suspense> },
 
       // Pricing Module
       { path: 'pricing/files', element: <Suspense fallback={<PageLoading />}><PricingFiles /></Suspense> },
@@ -113,6 +120,9 @@ export const router = createBrowserRouter([
       { path: 'estimation/create/metric', element: <Suspense fallback={<PageLoading />}><EstimationMetric /></Suspense> },
       { path: 'estimation/create/parametric', element: <Suspense fallback={<PageLoading />}><EstimationParametric /></Suspense> },
       { path: 'estimation/list', element: <Suspense fallback={<PageLoading />}><EstimationList /></Suspense> },
+
+      // Standardize Module
+      { path: 'standardize/files/:id', element: <Suspense fallback={<PageLoading />}><StandardizationPage /></Suspense> },
 
       // Fallback redirects
       { path: 'collect', element: <Navigate to={ROUTES.COLLECT.DASHBOARD} replace /> },

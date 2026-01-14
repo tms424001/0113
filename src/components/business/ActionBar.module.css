@@ -1,0 +1,6 @@
+/* src/components/business/ActionBar.module.css */
+.actionBar {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--spacing-md) 0;
+}

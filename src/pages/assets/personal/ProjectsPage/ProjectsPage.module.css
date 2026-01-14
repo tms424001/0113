@@ -1,0 +1,147 @@
+/* src/pages/assets/personal/ProjectsPage/ProjectsPage.module.css */
+/* 我的项目页面样式 */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  background: #f5f5f5;
+}
+
+/* ===== 页面头部 ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* ===== 筛选栏 ===== */
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.filterLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filterRight {
+  flex-shrink: 0;
+}
+
+/* ===== 批量操作栏 ===== */
+.batchBar {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+  border-radius: 8px;
+}
+
+/* ===== 表格容器 ===== */
+.tableContainer {
+  flex: 1;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  overflow: auto;
+}
+
+/* ===== 空状态 ===== */
+.empty {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.empty p {
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* ===== 表格内操作按钮 ===== */
+.tableContainer :global(.ant-btn-link) {
+  padding: 0 4px;
+  height: auto;
+}
+
+/* 操作按钮容器 - 6个按钮对齐 */
+.actionButtons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.actionButtons :global(.ant-btn-link) {
+  min-width: 36px;
+  padding: 0 4px;
+  text-align: center;
+}
+
+/* ===== 抽屉内容 ===== */
+.drawerContent {
+  padding: 0;
+}
+
+/* 补录完成度卡片 */
+.completenessCard {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.completenessHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.completenessHint {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+
+  .filterRight {
+    margin-top: 12px;
+  }
+}

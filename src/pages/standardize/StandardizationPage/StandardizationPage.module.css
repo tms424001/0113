@@ -1,0 +1,217 @@
+/* src/pages/standardize/StandardizationPage/StandardizationPage.module.css */
+/* 标准化分析页面样式 */
+
+.page {
+  display: flex;
+  height: calc(100vh - 48px);
+  background: #f5f5f5;
+}
+
+/* ============================================================================
+   左侧面板
+   ============================================================================ */
+
+.leftPanel {
+  width: 240px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.leftPanel.collapsed {
+  width: 0;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.projectTree {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+.panelFooter {
+  padding: 16px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+/* ============================================================================
+   右侧主内容区
+   ============================================================================ */
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #fff;
+  margin: 0;
+}
+
+/* ============================================================================
+   Tabs
+   ============================================================================ */
+
+.tabsWrapper {
+  padding: 0 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* ============================================================================
+   工具栏
+   ============================================================================ */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8e8e8;
+  background: #fafafa;
+}
+
+.breadcrumb {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.toolbarControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbarLabel {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* ============================================================================
+   表格容器
+   ============================================================================ */
+
+.tableContainer {
+  flex: 1;
+  overflow: hidden;
+  padding: 16px;
+  min-height: 0;
+}
+
+/* ============================================================================
+   状态容器
+   ============================================================================ */
+
+.stateContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+/* ============================================================================
+   底部附加信息
+   ============================================================================ */
+
+.footer {
+  padding: 8px 16px;
+  border-top: 1px solid #e8e8e8;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.footer:hover {
+  background: #fafafa;
+}
+
+/* ============================================================================
+   展开按钮（收起状态下显示）
+   ============================================================================ */
+
+.expandButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding: 8px 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.expandButton:hover {
+  background: #f5f5f5;
+}
+
+/* ============================================================================
+   响应式
+   ============================================================================ */
+
+@media (max-width: 1200px) {
+  .leftPanel {
+    width: 200px;
+  }
+  
+  .breadcrumb {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftPanel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .leftPanel.collapsed {
+    width: 0;
+  }
+  
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .toolbarControls {
+    flex-wrap: wrap;
+  }
+}
