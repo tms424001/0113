@@ -1,0 +1,22 @@
+/* src/pages/collect/DraftsPage/components/PushToProjectModal.module.css */
+/* 推送到我的项目弹窗样式 */
+
+.projectInfo {
+  background-color: var(--color-bg-secondary, #fafafa);
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary, #1f1f1f);
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left: 3px solid var(--color-primary, #1677ff);
+}

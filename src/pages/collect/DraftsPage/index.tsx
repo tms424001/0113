@@ -1,7 +1,7 @@
 // src/pages/collect/DraftsPage/index.tsx
-// 草稿库页面
+// 草稿箱页面
 
-import React, { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   Table,
@@ -16,28 +16,33 @@ import {
   message,
   Tag,
   Typography,
+  Modal,
 } from 'antd'
-import type { Dayjs } from 'dayjs'
 import {
   PlusOutlined,
   ReloadOutlined,
   DeleteOutlined,
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
-import { useCollectDraftsPageStore } from '@/stores/Collectdraftspagestore'
+import { useCollectDraftsPageStore } from '@/stores/collectDraftsPageStore'
 import type { DraftDTO } from '@/types/draft'
 import { DRAFT_SOURCE_OPTIONS } from '@/types/draft'
-import { filterConfig, getTableColumns, drawerConfig, emptyConfig } from './Config'
+import { filterConfig, getTableColumns, drawerConfig, emptyConfig } from './config'
+import { PushToProjectModal } from './components/PushToProjectModal'
 import styles from './DraftsPage.module.css'
 
 const { RangePicker } = DatePicker
 const { Text } = Typography
 
 /**
- * 草稿库页面
+ * 草稿箱页面
  */
 export const DraftsPage = () => {
   const navigate = useNavigate()
+
+  // 推送弹窗状态
+  const [pushModalOpen, setPushModalOpen] = useState(false)
+  const [pushingDraft, setPushingDraft] = useState<DraftDTO | null>(null)
 
   // Store
   const {
@@ -84,7 +89,7 @@ export const DraftsPage = () => {
 
   /** 时间范围筛选 */
   const handleTimeRangeChange = useCallback(
-    (dates: [Dayjs | null, Dayjs | null] | null) => {
+    (dates: [dayjs.Dayjs | null, dayjs.Dayjs | null] | null) => {
       if (dates && dates[0] && dates[1]) {
         setFilter({
           uploadTimeRange: [
@@ -131,12 +136,36 @@ export const DraftsPage = () => {
     [openDrawer]
   )
 
-  /** 补录 */
-  const handleSupplement = useCallback(
+  /** 推送到我的项目 */
+  const handlePush = useCallback(
     (record: DraftDTO) => {
-      navigate(`/pr/create?projectId=${record.id}`)
+      setPushingDraft(record)
+      setPushModalOpen(true)
     },
-    [navigate]
+    []
+  )
+
+  /** 推送成功回调 */
+  const handlePushSuccess = useCallback(
+    (projectId: string) => {
+      setPushModalOpen(false)
+      setPushingDraft(null)
+      
+      // 提示并询问是否跳转
+      Modal.confirm({
+        title: '推送成功',
+        content: '已推送到我的项目，是否立即查看？',
+        okText: '去查看',
+        cancelText: '继续留在草稿箱',
+        onOk: () => {
+          navigate(`/assets/personal/projects`)
+        },
+      })
+      
+      // 刷新列表
+      fetchDrafts()
+    },
+    [navigate, fetchDrafts]
   )
 
   /** 删除单条 */
@@ -150,15 +179,6 @@ export const DraftsPage = () => {
       }
     },
     [deleteDraft]
-  )
-
-  /** 导出 */
-  const handleExport = useCallback(
-    (record: DraftDTO) => {
-      message.info(`导出: ${record.projectName}`)
-      // TODO: 实现导出逻辑
-    },
-    []
   )
 
   /** 批量删除 */
@@ -183,7 +203,7 @@ export const DraftsPage = () => {
     {
       title: '操作',
       key: 'actions',
-      width: 220,
+      width: 180,
       fixed: 'right',
       render: (_, record) => (
         <div className={styles.actionButtons}>
@@ -193,8 +213,8 @@ export const DraftsPage = () => {
           <Button type="link" size="small" onClick={() => handleAnalyze(record)}>
             分析
           </Button>
-          <Button type="link" size="small" onClick={() => handleSupplement(record)}>
-            补录
+          <Button type="link" size="small" onClick={() => handlePush(record)}>
+            推送
           </Button>
           <Popconfirm
             title="确定要删除该草稿吗？"
@@ -206,9 +226,6 @@ export const DraftsPage = () => {
               删除
             </Button>
           </Popconfirm>
-          <Button type="link" size="small" onClick={() => handleExport(record)}>
-            导出
-          </Button>
         </div>
       ),
     },
@@ -225,7 +242,7 @@ export const DraftsPage = () => {
 
       {/* 筛选栏 */}
       <div className={styles.filterBar}>
-        <div className={styles.filterLeft}>
+        <Space wrap size="middle">
           <Input.Search
             placeholder={filterConfig.search.placeholder}
             value={filter.keyword}
@@ -253,7 +270,7 @@ export const DraftsPage = () => {
           <Button icon={<ReloadOutlined />} onClick={resetFilter}>
             重置
           </Button>
-        </div>
+        </Space>
         <div className={styles.filterRight}>
           <Button type="primary" icon={<PlusOutlined />} onClick={handleCreate}>
             上传文件
@@ -377,6 +394,17 @@ export const DraftsPage = () => {
           </Descriptions>
         )}
       </Drawer>
+
+      {/* 推送到我的项目弹窗 */}
+      <PushToProjectModal
+        open={pushModalOpen}
+        draft={pushingDraft}
+        onClose={() => {
+          setPushModalOpen(false)
+          setPushingDraft(null)
+        }}
+        onSuccess={handlePushSuccess}
+      />
     </div>
   )
 }
