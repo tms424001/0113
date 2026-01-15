@@ -1,0 +1,47 @@
+/* src/pages/collect/MaterialCollectPage/MaterialCollectPage.module.css */
+/* 材料数据采集页面样式 */
+
+.page {
+  padding: 24px;
+  background: var(--color-bg-primary, #fff);
+  min-height: 100%;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h4 {
+  margin-bottom: 4px;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--color-bg-secondary, #fafafa);
+  border-radius: 8px;
+}
+
+.content {
+  background: #fff;
+}
+
+.mainRow {
+  min-height: 500px;
+}
+
+.recordCard {
+  height: 100%;
+  min-height: 500px;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: var(--color-text-secondary, #999);
+}

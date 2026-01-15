@@ -12,25 +12,24 @@ export const PATHS = {
   // ========== 采集入口 ==========
   COLLECT: {
     ROOT: '/collect',
+    OVERVIEW: '/collect/overview',
     UPLOAD: '/collect/upload',
+    COST_FILES: '/collect/cost-files',
     MATERIALS: '/collect/materials',
     BOQS: '/collect/boqs',
-    DRAFTS: '/collect/drafts',
+    // 我的数据
+    MY: {
+      PROJECTS: '/collect/my/projects',
+      PROJECT_EDIT: (id: string) => `/collect/my/projects/${id}/edit`,
+      MATERIALS: '/collect/my/materials',
+      BOQS: '/collect/my/boqs',
+    },
   },
 
   // ========== 标准化处理 ==========
   STANDARDIZE: {
     ROOT: '/standardize',
     FILE: (id: string) => `/standardize/files/${id}`,
-  },
-
-  // ========== 个人资产 ==========
-  PERSONAL: {
-    ROOT: '/assets/personal',
-    PROJECTS: '/assets/personal/projects',
-    PROJECT_EDIT: (id: string) => `/assets/personal/projects/${id}/edit`,
-    MATERIALS: '/assets/personal/materials',
-    BOQS: '/assets/personal/boqs',
   },
 
   // ========== PR 入库申请 ==========

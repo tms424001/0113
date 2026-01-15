@@ -1,0 +1,75 @@
+/* src/pages/assets/enterprise/MaterialsPage/components/MaterialDetailDrawer.module.css */
+
+.drawer :global(.ant-drawer-body) {
+  padding: 0;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.content {
+  padding: 0;
+}
+
+.header {
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.title {
+  margin-bottom: 4px !important;
+}
+
+.tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.priceNote {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.smallDivider {
+  margin: 12px 0;
+}
+
+.cvTag {
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+.chartContainer {
+  padding: 8px 0;
+}
+
+.xLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.xLabel {
+  font-size: 11px;
+  color: #999;
+}
+
+.moreBtn {
+  padding: 0;
+  margin-top: 8px;
+}
+
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #999;
+}

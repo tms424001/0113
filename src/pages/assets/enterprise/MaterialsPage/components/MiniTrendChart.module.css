@@ -1,0 +1,10 @@
+/* src/pages/assets/enterprise/MaterialsPage/components/MiniTrendChart.module.css */
+
+.chart {
+  display: block;
+}
+
+.noData {
+  color: #999;
+  font-size: 12px;
+}

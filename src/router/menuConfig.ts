@@ -11,6 +11,7 @@ import {
   AppstoreOutlined,
   DatabaseOutlined,
   AuditOutlined,
+  BankOutlined,
   FileTextOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons'
@@ -35,6 +36,14 @@ export interface MenuItemConfig {
  * 菜单配置
  */
 export const menuConfig: MenuItemConfig[] = [
+  // ========== 总览 ==========
+  {
+    key: 'collect-overview',
+    label: '总览',
+    icon: React.createElement(AppstoreOutlined),
+    path: '/collect/overview',
+  },
+
   // ========== 采集入口 ==========
   {
     key: 'collect',
@@ -42,10 +51,10 @@ export const menuConfig: MenuItemConfig[] = [
     icon: React.createElement(CloudUploadOutlined),
     children: [
       {
-        key: 'collect-upload',
+        key: 'collect-cost-files',
         label: '造价文件采集',
         icon: React.createElement(FileSearchOutlined),
-        path: '/collect/upload',
+        path: '/collect/cost-files',
       },
       {
         key: 'collect-materials',
@@ -58,12 +67,6 @@ export const menuConfig: MenuItemConfig[] = [
         label: '清单数据采集',
         icon: React.createElement(UnorderedListOutlined),
         path: '/collect/boqs',
-      },
-      {
-        key: 'collect-drafts',
-        label: '我的草稿箱',
-        icon: React.createElement(InboxOutlined),
-        path: '/collect/drafts',
       },
     ],
   },
@@ -78,19 +81,46 @@ export const menuConfig: MenuItemConfig[] = [
         key: 'personal-projects',
         label: '我的项目',
         icon: React.createElement(ProjectOutlined),
-        path: '/assets/personal/projects',
+        path: '/collect/my/projects',
       },
       {
         key: 'personal-materials',
         label: '我的材料',
         icon: React.createElement(DatabaseOutlined),
-        path: '/assets/personal/materials',
+        path: '/collect/my/materials',
       },
       {
         key: 'personal-boqs',
         label: '我的清单',
         icon: React.createElement(UnorderedListOutlined),
-        path: '/assets/personal/boqs',
+        path: '/collect/my/boqs',
+      },
+    ],
+  },
+
+  // ========== 企业资产 ==========
+  {
+    key: 'enterprise',
+    label: '企业资产',
+    icon: React.createElement(BankOutlined),
+    children: [
+      {
+        key: 'enterprise-projects',
+        label: '企业项目库',
+        icon: React.createElement(ProjectOutlined),
+        path: '/assets/enterprise/projects',
+      },
+      {
+        key: 'enterprise-materials',
+        label: '企业材料库',
+        icon: React.createElement(DatabaseOutlined),
+        path: '/assets/enterprise/materials',
+      },
+      {
+        key: 'enterprise-boqs',
+        label: '企业清单库',
+        icon: React.createElement(UnorderedListOutlined),
+        path: '/assets/enterprise/boqs',
       },
     ],
   },
@@ -161,8 +191,11 @@ export function getOpenKeys(pathname: string): string[] {
   if (pathname.startsWith('/standardize/') || pathname.startsWith('/collect/')) {
     return ['collect']
   }
-  if (pathname.startsWith('/assets/personal')) {
+  if (pathname.startsWith('/collect/my')) {
     return ['personal']
+  }
+  if (pathname.startsWith('/assets/enterprise')) {
+    return ['enterprise']
   }
 
   return []

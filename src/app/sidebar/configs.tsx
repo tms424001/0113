@@ -26,14 +26,14 @@ import { ROUTES } from '../../constants/routes'
  */
 export const collectSidebarConfig: SidebarConfig = {
   mode: 'simple',
-  defaultPath: ROUTES.COLLECT.DASHBOARD,
+  defaultPath: ROUTES.COLLECT.OVERVIEW,
   nodes: [
     {
       type: 'item',
-      key: 'collect-dashboard',
+      key: 'collect-overview',
       label: '总览',
       icon: <DashboardOutlined />,
-      path: ROUTES.COLLECT.DASHBOARD,
+      path: ROUTES.COLLECT.OVERVIEW,
     },
     { type: 'divider', key: 'collect-divider-1' },
     {
@@ -45,28 +45,21 @@ export const collectSidebarConfig: SidebarConfig = {
       children: [
         {
           type: 'item',
-          key: 'collect-ingest-pricing',
+          key: 'collect-cost-files',
           label: '造价文件采集',
-          path: ROUTES.COLLECT.INGEST.PRICING,
+          path: ROUTES.COLLECT.COST_FILES,
         },
         {
           type: 'item',
-          key: 'collect-ingest-material',
-          label: '材料数据采集',
-          path: ROUTES.COLLECT.INGEST.MATERIAL,
+          key: 'collect-materials',
+          label: '材价文件采集',
+          path: ROUTES.COLLECT.MATERIALS,
         },
         {
           type: 'item',
-          key: 'collect-ingest-boq',
-          label: '清单数据采集',
-          path: ROUTES.COLLECT.INGEST.BOQ,
-        },
-        {
-          type: 'item',
-          key: 'collect-drafts',
-          label: '我的草稿箱',
-          path: ROUTES.COLLECT.DRAFTS,
-          badgeKey: 'drafts',
+          key: 'collect-boqs',
+          label: '综价文件采集',
+          path: ROUTES.COLLECT.BOQS,
         },
       ],
     },
@@ -79,21 +72,21 @@ export const collectSidebarConfig: SidebarConfig = {
       children: [
         {
           type: 'item',
-          key: 'collect-projects',
+          key: 'personal-projects',
           label: '我的项目',
-          path: ROUTES.COLLECT.PROJECTS,
+          path: '/collect/my/projects',
         },
         {
           type: 'item',
-          key: 'collect-materials',
+          key: 'personal-materials',
           label: '我的材料',
-          path: ROUTES.COLLECT.MATERIALS,
+          path: '/collect/my/materials',
         },
         {
           type: 'item',
-          key: 'collect-boq-items',
+          key: 'personal-boqs',
           label: '我的清单',
-          path: ROUTES.COLLECT.BOQ_ITEMS,
+          path: '/collect/my/boqs',
         },
       ],
     },

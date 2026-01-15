@@ -1,0 +1,29 @@
+/* src/pages/collect/PricingCollectPage/components/FileDetail.module.css */
+/* 文件详情组件样式 */
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border, #f0f0f0);
+}
+
+.info {
+  margin-bottom: 24px;
+}
+
+.actions {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border, #f0f0f0);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: var(--color-text-secondary, #999);
+}

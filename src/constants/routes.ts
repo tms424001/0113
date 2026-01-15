@@ -8,15 +8,18 @@ export const ROUTES = {
   // 数据采集模块
   COLLECT: {
     ROOT: '/collect',
-    DASHBOARD: '/collect/dashboard',
+    OVERVIEW: '/collect/overview',
+    DASHBOARD: '/collect/overview',
     INGEST: {
-      PRICING: '/collect/upload',
-      MATERIAL: '/collect/ingest/material',
-      BOQ: '/collect/ingest/boq',
+      PRICING: '/collect/cost-files',
+      MATERIAL: '/collect/materials',
+      BOQ: '/collect/boqs',
     },
     UPLOAD: '/collect/upload',
-    DRAFTS: '/collect/drafts',
+    COST_FILES: '/collect/cost-files',
+    // DRAFTS: '/collect/drafts', // 已废弃，使用 COST_FILES
     MATERIALS: '/collect/materials',
+    BOQS: '/collect/boqs',
     BOQ_ITEMS: '/collect/boq-items',
     PROJECTS: '/collect/projects',
   },
@@ -25,7 +28,7 @@ export const ROUTES = {
   ASSETS: {
     ROOT: '/assets',
     DASHBOARD: '/assets/dashboard',
-    MATERIALS: '/assets/materials',
+    MATERIALS: '/assets/material/list',
     BOQ_PRICES: '/assets/boq-prices',
     PROJECTS: '/assets/projects',
     INDICATORS: '/assets/indicators',

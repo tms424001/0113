@@ -1,0 +1,35 @@
+/* src/pages/collect/OverviewPage/components/QuickActions.module.css */
+
+.card {
+  border-radius: 8px;
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionItem:hover {
+  background: #f5f5f5;
+}
+
+.actionIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.actionTitle {
+  font-size: 13px;
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 // src/pages/collect/DraftsPage/index.tsx
-// 草稿箱页面
+// 造价文件采集页面
 
 import { useEffect, useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -35,7 +35,7 @@ const { RangePicker } = DatePicker
 const { Text } = Typography
 
 /**
- * 草稿箱页面
+ * 造价文件采集页面
  */
 export const DraftsPage = () => {
   const navigate = useNavigate()
@@ -158,7 +158,7 @@ export const DraftsPage = () => {
         okText: '去查看',
         cancelText: '继续留在草稿箱',
         onOk: () => {
-          navigate(`/assets/personal/projects`)
+          navigate(`/collect/my/projects`)
         },
       })
       
@@ -237,7 +237,7 @@ export const DraftsPage = () => {
     <div className={styles.page}>
       {/* 页面头部 */}
       <div className={styles.header}>
-        <h1 className={styles.title}>草稿箱</h1>
+        <h1 className={styles.title}>造价文件采集</h1>
       </div>
 
       {/* 筛选栏 */}
@@ -346,9 +346,9 @@ export const DraftsPage = () => {
             </Button>
             <Button
               type="primary"
-              onClick={() => currentDraft && handleSupplement(currentDraft)}
+              onClick={() => currentDraft && handlePush(currentDraft)}
             >
-              去补录
+              推送
             </Button>
           </Space>
         }
@@ -405,6 +405,7 @@ export const DraftsPage = () => {
         }}
         onSuccess={handlePushSuccess}
       />
+
     </div>
   )
 }

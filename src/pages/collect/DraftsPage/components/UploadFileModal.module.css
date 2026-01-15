@@ -1,0 +1,14 @@
+/* src/pages/collect/DraftsPage/components/UploadFileModal.module.css */
+/* 上传文件弹窗样式 */
+
+.content {
+  padding: 8px 0;
+}
+
+.dragger {
+  margin-bottom: 20px;
+}
+
+.form {
+  margin-top: 16px;
+}

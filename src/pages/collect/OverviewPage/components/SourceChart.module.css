@@ -1,0 +1,42 @@
+/* src/pages/collect/OverviewPage/components/SourceChart.module.css */
+
+.card {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.chartContent {
+  padding: 8px 0;
+}
+
+.barItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.barItem:last-child {
+  margin-bottom: 0;
+}
+
+.barLabel {
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.barWrapper {
+  flex: 1;
+  margin: 0 12px;
+}
+
+.barValue {
+  width: 100px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.footer {
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}

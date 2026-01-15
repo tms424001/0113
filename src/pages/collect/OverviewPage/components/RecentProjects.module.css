@@ -1,0 +1,10 @@
+/* src/pages/collect/OverviewPage/components/RecentProjects.module.css */
+
+.card {
+  border-radius: 8px;
+}
+
+.completion {
+  display: flex;
+  align-items: center;
+}

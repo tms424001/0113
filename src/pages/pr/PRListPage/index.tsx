@@ -216,7 +216,7 @@ export const PRListPage = () => {
 
   /** 创建 PR */
   const handleCreate = useCallback(() => {
-    navigate('/assets/personal/projects')
+    navigate('/collect/my/projects')
   }, [navigate])
 
   // ===== 表格列 =====

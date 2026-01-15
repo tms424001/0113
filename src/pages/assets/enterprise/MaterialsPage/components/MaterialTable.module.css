@@ -1,0 +1,30 @@
+/* src/pages/assets/enterprise/MaterialsPage/components/MaterialTable.module.css */
+
+.container {
+  flex: 1;
+  overflow: auto;
+  padding: 0 16px 16px;
+}
+
+.materialInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.materialName {
+  font-weight: 500;
+  color: #262626;
+}
+
+.materialSpec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandTag {
+  font-size: 11px;
+  padding: 0 4px;
+  margin: 0;
+}

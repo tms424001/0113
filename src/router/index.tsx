@@ -23,8 +23,12 @@ const LazyLoad = (Component: React.LazyExoticComponent<React.ComponentType>) => 
 )
 
 // ===== 采集入口 =====
+const CollectOverviewPage = lazy(() => import('@/pages/collect/OverviewPage'))
 const CollectUploadPage = lazy(() => import('@/pages/collect/CollectUploadPage'))
 const CollectDraftsPage = lazy(() => import('@/pages/collect/DraftsPage'))
+const MaterialCollectPage = lazy(() => import('@/pages/collect/MaterialCollectPage'))
+const BOQCollectPage = lazy(() => import('@/pages/collect/BOQCollectPage'))
+const PricingCollectPage = lazy(() => import('@/pages/collect/PricingCollectPage'))
 
 // ===== 标准化处理 =====
 const StandardizeFilePage = lazy(() => import('@/pages/standardize/StandardizationPage'))
@@ -32,6 +36,7 @@ const StandardizeFilePage = lazy(() => import('@/pages/standardize/Standardizati
 // ===== 数据资产 =====
 const AssetsDashboard = lazy(() => import('@/pages/assets/DashboardPage'))
 const AssetsMaterials = lazy(() => import('@/pages/assets/MaterialsPage'))
+const EnterpriseMaterialsPage = lazy(() => import('@/pages/assets/enterprise/MaterialsPage'))
 const AssetsBoqPrices = lazy(() => import('@/pages/assets/BoqPricesPage'))
 const AssetsProjects = lazy(() => import('@/pages/assets/ProjectsPage'))
 const AssetsIndicators = lazy(() => import('@/pages/assets/IndicatorsPage'))
@@ -83,10 +88,10 @@ export const routes: RouteObject[] = [
     path: '/',
     element: <AppShell />,
     children: [
-      // 默认重定向到草稿箱
+      // 默认重定向到总览
       {
         index: true,
-        element: <Navigate to="/collect/drafts" replace />,
+        element: <Navigate to="/collect/overview" replace />,
       },
 
       // ========== 采集入口 ==========
@@ -95,62 +100,70 @@ export const routes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <Navigate to="/collect/upload" replace />,
+            element: <Navigate to="/collect/overview" replace />,
+          },
+          {
+            path: 'overview',
+            element: LazyLoad(CollectOverviewPage),
+            handle: {
+              title: '总览',
+              menuKey: 'collect-overview',
+            },
           },
           {
             path: 'upload',
             element: LazyLoad(CollectUploadPage),
             handle: {
-              title: '造价文件采集',
+              title: '上传造价文件',
               menuKey: 'collect-upload',
             },
           },
           {
-            path: 'ingest/material',
-            element: LazyLoad(CollectUploadPage),
+            path: 'cost-files',
+            element: LazyLoad(CollectDraftsPage),
             handle: {
-              title: '材料数据采集',
-              menuKey: 'collect-ingest-material',
-            },
-          },
-          {
-            path: 'ingest/boq',
-            element: LazyLoad(CollectUploadPage),
-            handle: {
-              title: '清单数据采集',
-              menuKey: 'collect-ingest-boq',
+              title: '造价文件采集',
+              menuKey: 'collect-cost-files',
             },
           },
           {
             path: 'materials',
-            element: LazyLoad(PersonalMaterialsPage),
+            element: LazyLoad(MaterialCollectPage),
             handle: {
-              title: '我的材料',
+              title: '材价文件采集',
               menuKey: 'collect-materials',
             },
           },
           {
-            path: 'drafts',
-            element: LazyLoad(CollectDraftsPage),
+            path: 'boqs',
+            element: LazyLoad(BOQCollectPage),
             handle: {
-              title: '我的草稿箱',
-              menuKey: 'collect-drafts',
+              title: '综价文件采集',
+              menuKey: 'collect-boqs',
             },
           },
           {
-            path: 'projects',
+            path: 'my/projects',
             element: LazyLoad(PersonalProjectsPage),
             handle: {
               title: '我的项目',
-              menuKey: 'collect-projects',
+              menuKey: 'personal-projects',
             },
           },
           {
-            path: 'boq-items',
+            path: 'my/materials',
+            element: LazyLoad(PersonalMaterialsPage),
+            handle: {
+              title: '我的材料',
+              menuKey: 'personal-materials',
+            },
+          },
+          {
+            path: 'my/boqs',
             element: LazyLoad(PersonalBOQsPage),
             handle: {
               title: '我的清单',
-              menuKey: 'collect-boq-items',
+              menuKey: 'personal-boqs',
             },
           },
         ],
@@ -188,6 +201,11 @@ export const routes: RouteObject[] = [
             path: 'materials',
             element: LazyLoad(AssetsMaterials),
             handle: { title: '材料库', menuKey: 'assets-materials' },
+          },
+          {
+            path: 'material/list',
+            element: LazyLoad(EnterpriseMaterialsPage),
+            handle: { title: '企业材料库', menuKey: 'assets-enterprise-materials' },
           },
           {
             path: 'boq-prices',
@@ -228,49 +246,6 @@ export const routes: RouteObject[] = [
             path: 'mall/projects',
             element: LazyLoad(AssetsMallProjects),
             handle: { title: '项目案例', menuKey: 'assets-mall-projects' },
-          },
-        ],
-      },
-
-      // ========== 个人资产（我的数据） ==========
-      {
-        path: 'assets/personal',
-        children: [
-          {
-            index: true,
-            element: <Navigate to="/assets/personal/projects" replace />,
-          },
-          {
-            path: 'projects',
-            element: LazyLoad(PersonalProjectsPage),
-            handle: {
-              title: '我的项目',
-              menuKey: 'personal-projects',
-            },
-          },
-          {
-            path: 'projects/:id/edit',
-            element: LazyLoad(PersonalProjectsPage), // 编辑模式
-            handle: {
-              title: '编辑项目',
-              menuKey: 'personal-projects',
-            },
-          },
-          {
-            path: 'materials',
-            element: LazyLoad(PersonalMaterialsPage),
-            handle: {
-              title: '我的材料',
-              menuKey: 'personal-materials',
-            },
-          },
-          {
-            path: 'boqs',
-            element: LazyLoad(PersonalBOQsPage),
-            handle: {
-              title: '我的清单',
-              menuKey: 'personal-boqs',
-            },
           },
         ],
       },
@@ -454,7 +429,7 @@ export const routes: RouteObject[] = [
       // ========== 404 ==========
       {
         path: '*',
-        element: <Navigate to="/collect/drafts" replace />,
+        element: <Navigate to="/collect/overview" replace />,
       },
     ],
   },

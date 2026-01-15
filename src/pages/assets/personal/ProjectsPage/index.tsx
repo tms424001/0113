@@ -134,7 +134,7 @@ export const ProjectsPage = () => {
   /** 编辑 */
   const handleEdit = useCallback(
     (record: ProjectDTO) => {
-      navigate(`/assets/personal/projects/${record.id}/edit`)
+      navigate(`/collect/my/projects/${record.id}/edit`)
     },
     [navigate]
   )
@@ -197,7 +197,7 @@ export const ProjectsPage = () => {
 
   /** 从草稿箱导入 */
   const handleImport = useCallback(() => {
-    navigate('/collect/drafts?action=import')
+    navigate('/collect/cost-files?action=import')
   }, [navigate])
 
   // ===== 表格列 =====

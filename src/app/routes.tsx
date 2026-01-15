@@ -14,10 +14,10 @@ const PageLoading = () => (
 // Collect Pages
 const CollectDashboard = lazy(() => import('../pages/collect/DashboardPage'))
 const CollectIngestPricing = lazy(() => import('../pages/collect/IngestPricingPage'))
-const CollectIngestMaterial = lazy(() => import('../pages/collect/IngestMaterialPage'))
+const CollectIngestMaterial = lazy(() => import('../pages/collect/MaterialCollectPage'))
 const CollectIngestBoq = lazy(() => import('../pages/collect/IngestBoqPage'))
 const CollectDrafts = lazy(() => import('../pages/collect/DraftsPage'))
-const CollectMaterials = lazy(() => import('../pages/collect/MaterialsPage'))
+const CollectMaterials = lazy(() => import('../pages/assets/personal/MaterialsPage'))
 const CollectBoqItems = lazy(() => import('../pages/collect/BoqItemsPage'))
 const CollectProjects = lazy(() => import('../pages/assets/personal/ProjectsPage'))
 const CollectUpload = lazy(() => import('../pages/collect/CollectUploadPage'))
@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
       { path: 'assets/mall/info-prices', element: <Suspense fallback={<PageLoading />}><AssetsMallInfoPrices /></Suspense> },
       { path: 'assets/mall/market-prices', element: <Suspense fallback={<PageLoading />}><AssetsMallMarketPrices /></Suspense> },
       { path: 'assets/mall/projects', element: <Suspense fallback={<PageLoading />}><AssetsMallProjects /></Suspense> },
-      { path: 'assets/personal/projects', element: <Suspense fallback={<PageLoading />}><AssetsPersonalProjects /></Suspense> },
+      // 个人资产路由已移至 /collect/my/*
 
       // Pricing Module
       { path: 'pricing/files', element: <Suspense fallback={<PageLoading />}><PricingFiles /></Suspense> },

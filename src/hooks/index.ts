@@ -32,6 +32,16 @@ export {
   type UseDraftDetailOptions,
 } from './useCollect'
 
+// 数据采集页面通用 Hook
+export {
+  useCollectPage,
+  type BaseCollectFile,
+  type CollectStats,
+  type CollectFilterParams,
+  type UseCollectPageConfig,
+  type UseCollectPageReturn,
+} from './useCollectPage'
+
 // Pricing 模块 Hooks
 export {
   usePricingTaskList,
